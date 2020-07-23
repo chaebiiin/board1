@@ -7,7 +7,8 @@ import co.micol.exam.board1.vo.CommonVo;
 
 public class InputTest {
 	Scanner sc = new Scanner(System.in);
-	CommonVo dao = new CommonVo();
+	ServiceImpl service = new ServiceImpl();
+//	CommonVo dao = new CommonVo();
 	List<CommonVo> list = new ArrayList<CommonVo>();
 	CommonVo vo;
 
@@ -47,20 +48,21 @@ public class InputTest {
 		} while (boolCheck);
 	}
 
-//	private CommonVo memberDelete() {
-//		CommonVo ??????
-//		boolean bool = true;
-//		System.out.println("삭제 할 회원 아이디를 입력하세요.");
-//		vo = new  CommonVo();
-//		vo.setId(sc.next());
-//		CommonVo n = ServiceImpl.delete(vo);
-//		if(n != 0 ) {
-//			System.out.println("삭제 되었습니다.");
-//		}else {
-//			System.out.println("실패 되었습니다.");
-//		}
-//	}
 
+
+	private CommonVo memberDelete() {
+		boolean bool = true;
+		System.out.println("삭제 할 회원 아이디를 입력하세요.");
+		vo = new  CommonVo();
+		vo.setId(sc.next());
+		int n = service.delete(vo);
+		if(n != 0 ) {
+			System.out.println("삭제 되었습니다.");
+		}else {
+			System.out.println("실패 되었습니다.");
+		}
+		return vo;
+	}
 	private void memberUpdate() { 
 		
 		System.out.println("업데이트 할 회원 정보를 입력하세요.");
@@ -73,7 +75,7 @@ public class InputTest {
 		vo.setName(sc.next());
 		System.out.print("변경될 전화번호 : ");
 		vo.setTel(sc.next());
-		int n = dao.update(vo);
+		int n = service.update(vo);
 		if(n != 0 ) {
 			System.out.println("수정 되었습니다.");
 		}else {
@@ -92,7 +94,7 @@ public class InputTest {
 		vo.setName(sc.next());
 		System.out.print("전화번호 : ");
 		vo.setTel(sc.next());
-		int n = dao.insert(vo);
+		int n = service.insert(vo);
 		if(n != 0 ) {
 			System.out.println("입력 되었습니다.");
 		}else {
@@ -112,7 +114,7 @@ public class InputTest {
 			
 			switch (sc.nextInt()) {
 			case 1:
-				list = dao.selectList();
+				list = service.selectList();
 				System.out.println("*****전체회원 조회 ******");
 				for (CommonVo member : list) {
 					member.toString();
@@ -123,7 +125,7 @@ public class InputTest {
 				vo = new CommonVo();
 				System.out.println("회원 아이디를 입력하세요> ");
 				vo.setId(sc.next());
-				vo = dao.select(vo);
+				vo = service.select(vo);
 				vo.toString();
 				break;
 
