@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.micol.exam.board1.model.BoardServiceImpl;
+import co.micol.exam.board1.model.InputTest;
 import co.micol.exam.board1.model.MemberLogin;
 import co.micol.exam.board1.vo.CommonVo;
 
@@ -16,16 +17,17 @@ public class App {
 //		List<CommonVo> list = new ArrayList<CommonVo>();
 //		list = board.selectList();
 		
-		co.micol.exam.board1.model.InputTest it = new co.micol.exam.board1.model.InputTest();
-		it.menu();
+
 //		for (CommonVo vo : list) {
 //			System.out.println("번호 | 아이디  |  제목     | 내용              ");
 //			System.out.print(vo.getNo() + "  | ");
 //			System.out.print(vo.getId() + "  |  ");
 //			System.out.print(vo.getTitle() + " |  ");
 //			System.out.println(vo.getContents() + " | ");
-//			
+			
 //		}
+		InputTest it = new InputTest();
+		it.menu();
 	}
 	
 }

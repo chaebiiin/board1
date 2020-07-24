@@ -7,7 +7,7 @@ import co.micol.exam.board1.vo.CommonVo;
 
 public class InputTest {
 	Scanner sc = new Scanner(System.in);
-	ServiceImpl service = new ServiceImpl();
+	BoardServiceImpl boardServiceImpl = new BoardServiceImpl();
 //	CommonVo dao = new CommonVo();
 	List<CommonVo> list = new ArrayList<CommonVo>();
 	CommonVo vo;
@@ -55,7 +55,7 @@ public class InputTest {
 		System.out.println("삭제 할 회원 아이디를 입력하세요.");
 		vo = new  CommonVo();
 		vo.setId(sc.next());
-		int n = service.delete(vo);
+		int n = boardServiceImpl.delete(vo);
 		if(n != 0 ) {
 			System.out.println("삭제 되었습니다.");
 		}else {
@@ -75,7 +75,7 @@ public class InputTest {
 		vo.setName(sc.next());
 		System.out.print("변경될 전화번호 : ");
 		vo.setTel(sc.next());
-		int n = service.update(vo);
+		int n = boardServiceImpl.update(vo);
 		if(n != 0 ) {
 			System.out.println("수정 되었습니다.");
 		}else {
@@ -94,7 +94,7 @@ public class InputTest {
 		vo.setName(sc.next());
 		System.out.print("전화번호 : ");
 		vo.setTel(sc.next());
-		int n = service.insert(vo);
+		int n = boardServiceImpl.insert(vo);
 		if(n != 0 ) {
 			System.out.println("입력 되었습니다.");
 		}else {
@@ -114,10 +114,10 @@ public class InputTest {
 			
 			switch (sc.nextInt()) {
 			case 1:
-				list = service.selectList();
+				list = boardServiceImpl.selectList();
 				System.out.println("*****전체회원 조회 ******");
-				for (CommonVo member : list) {
-					member.toString();
+				for (CommonVo board : list) {
+					board.toString();
 				}
 				break;
 
@@ -125,7 +125,7 @@ public class InputTest {
 				vo = new CommonVo();
 				System.out.println("회원 아이디를 입력하세요> ");
 				vo.setId(sc.next());
-				vo = service.select(vo);
+				vo = boardServiceImpl.select(vo);
 				vo.toString();
 				break;
 

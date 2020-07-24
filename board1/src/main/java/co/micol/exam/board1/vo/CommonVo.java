@@ -89,5 +89,15 @@ public class CommonVo {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-
+	public String toString() {
+		System.out.println("아이디:  " + getId());
+		System.out.println("패스워드:  " + getPassword());
+		System.out.println("이름:  " + getName());
+		System.out.println("전화번호:  " + getTel());		
+		
+		System.out.println("번호: " + getNo());
+		System.out.println("타이틀: " + getTitle());
+		System.out.println("내용: " +getContents());
+		return null;
+	}
 }
